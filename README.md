@@ -3,6 +3,11 @@
 Godot plugin to quickly change and test Project Resolution settings.
 
 
+## Download
+
+- Clone this github repository or download at https://danim3d.itch.io/godot-plugin-project-resolution
+
+
 ## Installation
 
 - Copy the contents of the "addons" directory to the "addons" directory of your Godot Project
