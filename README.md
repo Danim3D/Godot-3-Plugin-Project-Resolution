@@ -3,11 +3,6 @@
 Godot plugin to quickly change and test Project Resolution settings.
 
 
-## Project Resolution
-
-Godot plugin to quickly change and test Project Resolution settings".
-
-
 ## Installation
 
 - Copy the contents of the "addons" directory to the "addons" directory of your Godot Project
