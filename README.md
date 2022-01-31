@@ -20,6 +20,6 @@ Once the plugin is activated, a new button will show up on the Top-Right corner 
 
 - "Fullscreen" will toggle the Fullscreen setting from the Projects Settings.
 - "Play on Change" will play your main project scene when you change the resolution with the plugin.
-- "Multistart" will play two instances side by side centered in the screen, this is useful for networking testing. This option will disable Fullscreen settings on play. Note that you can't use the stop button and will have to close each instance.
+- "Multistart" will play two instances side by side centered in the screen, this is useful for networking testing. This option will disable Fullscreen settings on play. Note with this option you can't use the stop button and will have to close each window instance.
 - "Native" will use the current resolution of your desktop.
 - Custom resolutions can be added in the list of resolutions inside the plugin.gd file.
