@@ -12,7 +12,7 @@ Useful to test and prevent your UI from being inconsistent in different resoluti
 ## Installation
 
 - Copy the contents of the "addons" directory to the "addons" directory of your Godot Project
-- Go in "Project - Project Settings - Plugins (tab)" and enable "ProjectResolution"
+- Go in "Project -> Project Settings -> Plugins (tab)" and enable "ProjectResolution"
 
 
 ## Usage
