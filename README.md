@@ -27,3 +27,5 @@ Once the plugin is activated, a new button will show up on the Top-Right corner 
 - "Native" will use the current resolution of your desktop.
 - "Landscape" will switch mobile resolutions using Landscape instead of Portrait.
 - Custom resolutions can be added in the list of resolutions inside the plugin.gd file.
+
+![Image](https://img.itch.zone/aW1hZ2UvMTM3ODU2OC84MDI3OTE0LnBuZw==/347x500/%2FMyT0k.png)
