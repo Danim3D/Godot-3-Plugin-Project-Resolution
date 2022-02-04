@@ -2,6 +2,7 @@
 
 Godot plugin to quickly change and test Project Resolution settings.
 
+Useful to test and prevent your UI from being inconsistent in different resolutions.
 
 ## Download
 
@@ -22,4 +23,5 @@ Once the plugin is activated, a new button will show up on the Top-Right corner 
 - "Play on Change" will play your main project scene when you change the resolution with the plugin.
 - "Multistart" will play two instances side by side centered on the screen, this is useful for networking testing. This option will disable Fullscreen settings on play. Note with this option you can't use the stop button and will have to close each window instance.
 - "Native" will use the current resolution of your desktop.
+- "Landscape" will switch mobile resolutions using Landscape instead of Portrait.
 - Custom resolutions can be added in the list of resolutions inside the plugin.gd file.
