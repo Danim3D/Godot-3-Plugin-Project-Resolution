@@ -1,4 +1,4 @@
-# https://github.com/nymzer/project-resolution
+# https://github.com/Danim3D/godot-plugin-project-resolution
 
 # Folder structure to use the plugin look like this inside the addons folder in your Godot project : "res://addons/ProjectResolution"
 
@@ -14,8 +14,8 @@ var _plugins_menu = _plugin_menu_btn.get_popup()
 
 var _menu_items_idx = 0
 var play_on_change = false
-
 var multistart = false
+var landscape = false
 
 
 func _enter_tree():
@@ -60,10 +60,13 @@ func _populate_menu():
 	var current_fullscreen = ProjectSettings.get_setting("display/window/size/fullscreen")
 	var current_res = str(ProjectSettings.get_setting("display/window/size/width"))+"x"+str(ProjectSettings.get_setting("display/window/size/height"))
 	
+	#by default added buttons are unchecked unless true
+	var isPluginEnabled = false
+	
 	#Add Button settings
 	var _buttons = ["Fullscreen", "Play On Change", "Multistart"]
 	for button in _buttons:
-		var isPluginEnabled = false
+		isPluginEnabled = false
 		if button == "Fullscreen" and current_fullscreen == true:
 			isPluginEnabled = true
 		if button == "Play On Change" and play_on_change == true:
@@ -75,13 +78,13 @@ func _populate_menu():
 		_plugins_menu.set_item_checked(_menu_items_idx, isPluginEnabled)
 		_menu_items_idx += 1
 	
+	#Add desktop resolutions
 	_plugins_menu.add_separator("Desktop");
 	_menu_items_idx += 1
 	
-	#Add desktop resolutions
 	var _resolutions = ["Native", "2560x1600", "2560x1440", "1920x1200", "1920x1080", "1600x1200", "1280x1024", "1280x720", "1024x768", "800x600", "720x405", "640x480", "640x360","320x240"]
 	for resolution in _resolutions:
-		var isPluginEnabled = false
+		isPluginEnabled = false
 		if resolution == current_res:
 			isPluginEnabled = true
 		
@@ -89,15 +92,39 @@ func _populate_menu():
 		_plugins_menu.set_item_checked(_menu_items_idx, isPluginEnabled)
 		_menu_items_idx += 1
 	
+	#Add widescreen resolutions
+	_plugins_menu.add_separator("Widescreen");
+	_menu_items_idx += 1
+	
+	var _widescreen_resolutions = ["5120x1440", "3840x1080", "2560x1080", "2560x720", "1600x900", "1280x360"]
+	for resolution in _widescreen_resolutions:
+		isPluginEnabled = false
+		if resolution == current_res:
+			isPluginEnabled = true
+		
+		_plugins_menu.add_check_item(resolution)
+		_plugins_menu.set_item_checked(_menu_items_idx, isPluginEnabled)
+		_menu_items_idx += 1
+	
+	#Add mobile resolutions
 	_plugins_menu.add_separator("Mobile");
 	_menu_items_idx += 1
 	
-	#Add mobile resolutions
-	var _mobile_resolutions = ["1536x2048", "768x1024", "1242x2208", "1080x1920", "768x1280", "750x1334", "720x1280", "640x1136", "640x960", "480x800", "375x667", "414x896", "375x812", "320x640", "320x480"]
+	var buttonLandscape = "Landscape"
+	if landscape == true:
+		isPluginEnabled = true
+	_plugins_menu.add_check_item(buttonLandscape)
+	_plugins_menu.set_item_checked(_menu_items_idx, isPluginEnabled)
+	_menu_items_idx += 1
+	
+	var _mobile_resolutions = ["1536x2048", "1242x2208", "768x1280", "750x1334", "640x1136", "640x960", "480x800", "375x667", "414x896", "375x812", "320x640", "320x480"]
 	for resolution in _mobile_resolutions:
-		var isPluginEnabled = false
+		isPluginEnabled = false
 		if resolution == current_res:
 			isPluginEnabled = true
+		if landscape == true:
+			var res = resolution.split("x")
+			resolution = res[1]+"x"+res[0]
 		
 		_plugins_menu.add_check_item(resolution)
 		_plugins_menu.set_item_checked(_menu_items_idx, isPluginEnabled)
@@ -126,6 +153,9 @@ func _set_resolution(id, menuBtn):
 	elif item_name == "Multistart":
 		multistart = !multistart
 		print("Multistart: "+str(multistart))
+	elif item_name == "Landscape":
+		landscape = !landscape
+		print("Landscape: "+str(landscape))
 	else:
 		#Set Project Resolution settings
 		if item_name == "Native":
