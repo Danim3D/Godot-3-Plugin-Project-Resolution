@@ -1,3 +1,5 @@
+![Image](https://img.itch.zone/aW1hZ2UvMTM3ODU2OC84MDI4MDExLnBuZw==/original/ZQ1nVq.png)
+
 # Godot Plugin Project Resolution
 
 Godot plugin to quickly change and test Project Resolution settings.
