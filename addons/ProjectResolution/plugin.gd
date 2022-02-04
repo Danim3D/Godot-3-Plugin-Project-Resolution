@@ -96,7 +96,7 @@ func _populate_menu():
 	_plugins_menu.add_separator("Widescreen");
 	_menu_items_idx += 1
 	
-	var _widescreen_resolutions = ["5120x1440", "3840x1080", "2560x1080", "2560x720", "1600x900", "1280x360"]
+	var _widescreen_resolutions = ["5120x1440", "3840x1080", "2560x1080", "2560x720", "1920x540", "1280x360"]
 	for resolution in _widescreen_resolutions:
 		isPluginEnabled = false
 		if resolution == current_res:
@@ -117,7 +117,7 @@ func _populate_menu():
 	_plugins_menu.set_item_checked(_menu_items_idx, isPluginEnabled)
 	_menu_items_idx += 1
 	
-	var _mobile_resolutions = ["1536x2048", "1242x2208", "768x1280", "750x1334", "640x1136", "640x960", "480x800", "375x667", "414x896", "375x812", "320x640", "320x480"]
+	var _mobile_resolutions = ["1536x2048", "768x1024", "1242x2208", "1080x1920", "768x1280", "750x1334", "640x1136", "640x960", "480x800", "375x667", "414x896", "375x812", "320x640", "320x480"]
 	for resolution in _mobile_resolutions:
 		isPluginEnabled = false
 		if resolution == current_res:
@@ -171,6 +171,8 @@ func _set_resolution(id, menuBtn):
 		
 		if play_on_change and !multistart:
 			#play after resolution selected
+			if ProjectSettings.get_setting("display/window/size/height") > OS.get_screen_size().y:
+				print("Project Settings Height resolution is higher than desktop resolution.")
 			get_editor_interface().play_main_scene()
 		else:
 			#if multistart is true, set fullscreen to false
